@@ -1,0 +1,16 @@
+<ion-view title="Progressive REST API Consumer App" id="page1">
+  <ion-content padding="true" class="has-header">
+    <h4 id="page-heading1" style="color:#000000;">Write your latti and longitude</h4>
+    <form id="page-form1" class="list">
+      <label class="item item-input" id="page-input1" name="name"tude>Lattitude:
+        <input type="text" placeholder=""  ng-model="mdl.lat">    
+      </label>
+	<label class="item item-input" id="page-input1" name="name"tude>Longitude:
+       <input type="text" placeholder=""  ng-model="mdl.lon">           
+      </label>
+      
+    </form>
+
+    <a ui-sref="page2({ lat: mdl.lat , lon: mdl.lon })" id="page-button1" class="button button-positive button-block">Get UV info </a> 
+  </ion-content>
+</ion-view>
