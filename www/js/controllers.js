@@ -5,9 +5,6 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, $http) {
  
-    $scope.mdl = {};
-
-
 
 }])
    
@@ -16,20 +13,17 @@ function ($scope, $stateParams, $http) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, $http) {
 
-    appid = '';
     lat = $stateParams.lat;
     lon = $stateParams.lon;
-    url = "http://api.openweathermap.org/data/2.5/uvi?appid=8262c538bee377af9da6ca36b4aacdee&lat=20.615383&lon=-100.398251";
+    url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=8262c538bee377af9da6ca36b4aacdee" ;
 
 
     $http.get(url).then(function(response){
-            $scope.value = response.data.value;
-
-            
-
+            $scope.city = response.data.name;
+	    $scope.temp = response.data.main.temp;
+	    $scope.icon = response.data.weather[0].icon;	
 
         }, function(error){
-            //There was an error fetching from the server
             alert("Unable to retrieve UV info");
         });
 
